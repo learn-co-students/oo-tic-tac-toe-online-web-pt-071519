@@ -65,13 +65,10 @@ class TicTacToe
   def won?
     #if the Xs or Os of @board w/ index == WIN_COMBINATIONS
     #iterate across, check index numbers of matching X or O, check against WIN_COMBINATIONS
-    if WIN_COMBINATIONS.any? do |combo|
-      position_taken?(combo[0]) && @board[combo[0]] == @board[combo[1]] && @board[combo[1]] == @board[combo[2]]
-        return combo
+      WIN_COMBINATIONS.detect do |combo|
+        position_taken?(combo[0]) && @board[combo[0]] == @board[combo[1]] && @board[combo[1]] == @board[combo[2]]
       end
-      else return false
     end
-  end
 
     def full?
        @board.include?(" ")? false : true
@@ -94,6 +91,26 @@ class TicTacToe
   end
 
   def winner
+  	winning_combo = won?
+  	 if winning_combo
+  	    return @board[winning_combo[0]]
+  	 end
   end
+
+  def play
+    turn
+    over?
+    if false
+      turn
+    elsif true
+      draw?
+    end
+    if draw? == false
+    #  turn
+    elsif
+      puts "Cat's Game!"
+  end
+  end
+
 
 end
