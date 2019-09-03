@@ -71,7 +71,7 @@ class TicTacToe
     end
 
     def full?
-       @board.include?(" ")? false : true
+       @board.include?(" ") ? false : true
      end
 
      def draw?
@@ -84,6 +84,8 @@ class TicTacToe
 
   def over?
     if won? == true || full? == true
+      true
+    elsif draw? == true
       true
     else
       false
@@ -98,19 +100,45 @@ class TicTacToe
   end
 
   def play
-    turn
-    over?
-    if false
+    while over? == false
       turn
-    elsif true
-      draw?
+      won?
+      if won? !=false
+          puts "Congratulations, #{winner}!"
+      # else won? !=false && winner == "O"
+      #     puts "Congratulations, O!"
+      if draw? == true
+        puts "Cat's Game!"
+      end
+      end
     end
-    if draw? == false
-    #  turn
-    elsif
-      puts "Cat's Game!"
   end
-  end
-
 
 end
+
+  # def play
+  #   while over? == false
+  #     turn
+  #   end
+  #   if won?
+  #     puts "Congratulations #{winner}!"
+  #   elsif draw?
+  #     puts "Cats Game!"
+  #   end
+  # end
+
+  # def play
+  #    until over? == true
+  #      turn
+  #      if draw? == true
+  #        puts "The game was a draw."
+  #        return "Draw"
+  #      elsif won? != false
+  #        if winner == "X"
+  #          puts "Congratulations X!"
+  #        elsif winner == "O"
+  #          puts "Congratulations O!"
+  #        end
+  #      end
+  #    end
+  #  end
