@@ -1,4 +1,5 @@
 require_relative '../lib/tic_tac_toe.rb'
+require 'pry'
 
 describe './lib/tic_tac_toe.rb' do
   describe TicTacToe do
@@ -192,7 +193,7 @@ describe './lib/tic_tac_toe.rb' do
 
         expect(game).to receive(:gets).and_return("invalid")
         expect(game).to receive(:gets).and_return("1")
-
+    
         game.turn
       end
     end
